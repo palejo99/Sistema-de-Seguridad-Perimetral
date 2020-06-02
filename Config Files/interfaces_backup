@@ -1,0 +1,26 @@
+source /etc/network/interfaces.d/*
+# Network is managed by Network manager
+#auto lo
+#iface lo inet loopback
+
+#network card
+auto eth0
+#iface eth0 inet static
+#address 192.168.100.254
+#netmask 255.255.255.0
+#network 192.168.100.0
+#broadcast 192.168.100.255
+#gateway 192.168.100.1
+
+allow-hotplug wlan0
+iface wlan0 inet static
+ address 192.168.100.1
+ netmask 255.255.255.0
+ 
+#auto lo
+#iface lo inet loopback
+
+#auto wlan0
+#iface wlan0 inet dhcp
+ #   pre-up wpa_supplicant -B -Dwext -i wlan0 -c/etc/wpa_supplicant.conf
+  #  post-down killall -q wpa_supplicant 
